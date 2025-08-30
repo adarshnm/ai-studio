@@ -78,11 +78,16 @@ export default function Studio() {
   }, [])
 
   return (
-    <div className="container mx-auto max-w-6xl p-4 flex flex-col justify-center min-h-dvh">
+    <main
+      className="container mx-auto max-w-6xl p-4 flex flex-col justify-center min-h-dvh"
+      data-testid="ai-studio-main"
+    >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <Card className="md:col-span-2">
+        <Card className="md:col-span-2" data-testid="main-card">
           <CardHeader>
-            <CardTitle className="text-xl">AI Studio</CardTitle>
+            <CardTitle className="text-xl" role="heading">
+              AI Studio
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 flex flex-col  gap-4">
             <div className="flex items-center">
@@ -99,7 +104,12 @@ export default function Studio() {
             />
 
             <div className=" flex items-center gap-2">
-              <Button type="button" onClick={onGenerate} disabled={loading}>
+              <Button
+                type="button"
+                onClick={onGenerate}
+                disabled={loading}
+                data-testid="generate-button"
+              >
                 {loading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />{' '}
@@ -115,6 +125,7 @@ export default function Studio() {
                 onClick={abort}
                 disabled={!canAbort}
                 aria-disabled={!canAbort}
+                data-testid="abort-button"
               >
                 <XCircle className="mr-2 h-4 w-4" /> Abort
               </Button>
@@ -129,19 +140,29 @@ export default function Studio() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card
+          data-testid="history-card"
+          role="region"
+          aria-labelledby="history-heading"
+        >
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg">
+            <CardTitle
+              className="flex items-center gap-2 text-lg"
+              id="history-heading"
+            >
               <History className="h-5 w-5" /> History
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ScrollArea className="h-[480px] pr-2">
+            <ScrollArea
+              className="h-[480px] pr-2"
+              data-testid="history-scroll-area"
+            >
               <HistoryList history={history} onSelect={restoreFromHistory} />
             </ScrollArea>
           </CardContent>
         </Card>
       </div>
-    </div>
+    </main>
   )
 }
