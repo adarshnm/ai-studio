@@ -1,3 +1,5 @@
+# AI Studio (Next.js)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +36,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## AI Studio (this project)
+
+Features implemented:
+
+- Upload and preview PNG/JPG (≤10MB). Large images are downscaled to ≤1920px client‑side.
+- Prompt input and style dropdown (Editorial, Streetwear, Vintage).
+- Live summary panel (image + prompt + style).
+- Generate button calls a mock API with 1–2s delay and 20% simulated errors, with automatic retry (exponential backoff, max 3) and Abort.
+- Last 5 generations saved in localStorage; clicking a history item restores it.
+- Accessible and keyboard navigable with visible focus styles and ARIA labels.
+
+Keyboard tips:
+
+- Tab through inputs; buttons show focus ring. Press Enter on "Generate" to start. Use the "Abort" button to cancel an in‑flight request.
