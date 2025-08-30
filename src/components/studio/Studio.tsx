@@ -82,7 +82,9 @@ export default function Studio() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         <Card className="md:col-span-2">
           <CardHeader>
-            <CardTitle className="text-xl">AI Studio</CardTitle>
+            <CardTitle className="text-xl" role="heading">
+              AI Studio
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 flex flex-col  gap-4">
             <div className="flex items-center">
